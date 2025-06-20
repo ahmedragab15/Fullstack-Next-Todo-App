@@ -1,12 +1,12 @@
 import AddTodoForm from "@/components/AddTodoForm";
-import TodosList from "@/components/TodosList";
+import TodosTable from "@/components/TodosTable";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col  justify-between p-24">
       <AddTodoForm />
       <div>
-        <TodosList />
+        <TodosTable />
       </div>
     </main>
   );
