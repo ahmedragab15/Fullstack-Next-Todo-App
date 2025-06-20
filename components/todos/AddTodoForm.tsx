@@ -1,27 +1,21 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { Dialog, DialogClose, DialogContent, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { TodoFormValues, todoFormSchema } from "@/schema";
 import { useForm } from "react-hook-form";
-import { Input } from "./ui/input";
+import { Input } from "../ui/input";
 import { createTodoAction } from "@/actions/todoActions";
-import { Checkbox } from "./ui/checkbox";
+import { Checkbox } from "../ui/checkbox";
+import Spinner from "../Spinner";
 
 const AddTodoForm = () => {
+  const [openDialog, setOpenDialog] = useState(false);
+  const [loading, setLoading] = useState(false);
   const form = useForm<TodoFormValues>({
     resolver: zodResolver(todoFormSchema),
     defaultValues: {
@@ -32,13 +26,16 @@ const AddTodoForm = () => {
     mode: "onChange",
   });
 
-  const onSubmit = async (data: TodoFormValues) => {
-    await createTodoAction({ title: data.title, body: data.body, completed: data.completed });
+  const onSubmit = async ({ title, body, completed }: TodoFormValues) => {
+    setLoading(true);
+    await createTodoAction({ title, body, completed });
+    setLoading(false);
+    setOpenDialog(false);
   };
 
   return (
     <>
-      <Dialog>
+      <Dialog open={openDialog} onOpenChange={setOpenDialog}>
         <form>
           <DialogTrigger asChild>
             <Button>
@@ -48,7 +45,6 @@ const AddTodoForm = () => {
           <DialogContent className="sm:max-w-[425px]">
             <DialogHeader>
               <DialogTitle>Add a new todo</DialogTitle>
-              <DialogDescription>Make changes to your profile here. Click save when you&apos;re done.</DialogDescription>
             </DialogHeader>
             {/* Todo Form */}
             <div className="py-4">
@@ -101,7 +97,15 @@ const AddTodoForm = () => {
                         Cancel
                       </Button>
                     </DialogClose>
-                    <Button type="submit">Save changes</Button>
+                    <Button type="submit" disabled={loading}>
+                      {loading ? (
+                        <>
+                          <Spinner /> Saving
+                        </>
+                      ) : (
+                        "Save"
+                      )}
+                    </Button>
                   </DialogFooter>
                 </form>
               </Form>

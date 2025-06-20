@@ -1,12 +1,9 @@
-import { getTodoListAction } from "@/actions/todoActions";
 import React from "react";
-
 import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Button } from "./ui/button";
-import { Pen, Trash } from "lucide-react";
+import { Badge } from "../ui/badge";
+import TodosTableActions from "./TodosTableActions";
 
-const TodosTable = async () => {
-  const todos = await getTodoListAction();
+const TodosTable = ({ todos }: { todos: ITodo[] }) => {
   return (
     <Table>
       <TableCaption>A list of your Todos.</TableCaption>
@@ -23,14 +20,9 @@ const TodosTable = async () => {
           <TableRow key={todo.id}>
             <TableCell className="font-medium">{todo.id}</TableCell>
             <TableCell>{todo.title}</TableCell>
-            <TableCell>{todo.completed ? "Completed" : "Incompleted"}</TableCell>
+            <TableCell>{todo.completed ? <Badge>Completed</Badge> : <Badge variant="secondary">Incomplete</Badge>}</TableCell>
             <TableCell className="flex items-center justify-end space-x-2">
-              <Button size={"icon"} variant={"secondary"}>
-                <Pen />
-              </Button>
-              <Button size={"icon"} variant={"destructive"}>
-                <Trash />
-              </Button>
+              <TodosTableActions todo={todo} />
             </TableCell>
           </TableRow>
         ))}
