@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import TodosList from "@/components/TodosList";
 
 export default function Home() {
   return (
@@ -47,6 +48,9 @@ export default function Home() {
           </DialogContent>
         </form>
       </Dialog>
+      <div>
+        <TodosList/>
+      </div>
     </main>
   );
 }
