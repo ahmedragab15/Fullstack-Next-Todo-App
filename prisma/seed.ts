@@ -1,16 +1,8 @@
 import { PrismaClient } from "@prisma/client";
-import { faker } from "@faker-js/faker";
 
 const prisma = new PrismaClient();
 
-async function main() {
-  await prisma.todo.createMany({
-    data: Array.from({ length: 25 }, () => ({
-      title: faker.lorem.words({min: 2, max: 5}),
-      body: faker.lorem.sentence({min: 5, max: 10}),
-    })),
-  });
-}
+async function main() {}
 
 main()
   .catch(async (e) => {
