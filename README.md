@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Full Stack Todo App with Next.js, Prisma, and MongoDB
+
+This is a full-stack todo app built with Next.js, TypeScript, Prisma, and MongoDB. It incorporates various features and technologies to provide a comprehensive example of a modern web application.
+
+## Features
+
+- **Next.js & TypeScript:** Utilizes the power of Next.js for server-side rendering and TypeScript for type safety.
+- **Prisma & MongoDB:** Implements Prisma as the database toolkit and MongoDB for data storage.
+- **Server Actions:** Implements server-side actions for enhanced functionality.
+- **Clerk for Authentication:** Utilizes Clerk for secure and easy authentication.
+- **Add Todo to Logged In User:** Ensures that adding todos is restricted to logged-in users only.
+- **Database Seeding:** Includes a database seeding mechanism for initial data population.
+- **Shadcn UI:** Uses Shadcn UI for pre-built components, enhancing the app's visual appeal.
+- **Toggle Dark Mode:** Incorporates a dark mode feature for user customization.
+- **CRUD Operations:** Provides basic CRUD (Create, Read, Update, Delete) operations for managing todos.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js and npm installed
+- MongoDB server running
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+   ```bash
+   git clone https://github.com/ahmedragab15/Fullstack-Next-Todo-App
+   ```
 
-## Learn More
+2. Install dependencies:
+   `npm install`
+   3.Set up environment variables:
 
-To learn more about Next.js, take a look at the following resources:
+   Create a `.env` file in the root directory with the necessary environment variables. Include details such as `MongoDB` connection string, `Clerk API key`, etc.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3. Run the development server:
+   `npm run dev`
+   Open http://localhost:3000 in your browser to view the app.
