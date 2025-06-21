@@ -13,7 +13,7 @@ import { createTodoAction } from "@/actions/todoActions";
 import { Checkbox } from "../ui/checkbox";
 import Spinner from "../Spinner";
 
-const AddTodoForm = () => {
+const AddTodoForm = ({ userId }: { userId: string | null }) => {
   const [openDialog, setOpenDialog] = useState(false);
   const [loading, setLoading] = useState(false);
   const form = useForm<TodoFormValues>({
@@ -28,7 +28,7 @@ const AddTodoForm = () => {
 
   const onSubmit = async ({ title, body, completed }: TodoFormValues) => {
     setLoading(true);
-    await createTodoAction({ title, body:body || "" , completed });
+    await createTodoAction({ title, body: body || "", completed, userId });
     setLoading(false);
     setOpenDialog(false);
   };

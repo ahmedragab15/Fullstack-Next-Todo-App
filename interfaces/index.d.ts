@@ -4,4 +4,5 @@ declare interface ITodo {
   body?: string | null;
   completed: boolean;
   createdAt?: Date;
+  userId?: string | null;
 }
