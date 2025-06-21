@@ -28,7 +28,7 @@ const AddTodoForm = () => {
 
   const onSubmit = async ({ title, body, completed }: TodoFormValues) => {
     setLoading(true);
-    await createTodoAction({ title, body, completed });
+    await createTodoAction({ title, body:body || "" , completed });
     setLoading(false);
     setOpenDialog(false);
   };

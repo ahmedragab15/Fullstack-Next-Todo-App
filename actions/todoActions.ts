@@ -13,15 +13,15 @@ export const getTodoListAction = async () => {
     return allTodos;
 };
 
-export const createTodoAction = async ({ title, body, completed }: { title: string; body?: string | undefined; completed?: boolean }) => {
-    await prisma.todo.create({
-        data: {
-            title,
-            body,
-            completed,
-        },
-    });
-    revalidatePath("/");
+export const createTodoAction = async ({ title, body, completed }: ITodo) => {
+  await prisma.todo.create({
+    data: {
+      title,
+      body,
+      completed,
+    },
+  });
+  revalidatePath("/");
 };
 
 export const updateTodoAction = async ({ id, title, body, completed }: ITodo) => {
@@ -38,7 +38,7 @@ export const updateTodoAction = async ({ id, title, body, completed }: ITodo) =>
   revalidatePath("/");
 };
 
-export const deleteTodoAction = async ({ id }: { id: string }) => {
+export const deleteTodoAction = async ({ id }: { id: string | undefined }) => {
     await prisma.todo.delete({
         where: {
             id,

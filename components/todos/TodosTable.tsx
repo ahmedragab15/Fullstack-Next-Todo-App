@@ -1,12 +1,11 @@
 import React from "react";
-import { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "../ui/badge";
 import TodosTableActions from "./TodosTableActions";
 
 const TodosTable = ({ todos }: { todos: ITodo[] }) => {
   return (
     <Table>
-      <TableCaption>A list of your Todos.</TableCaption>
       <TableHeader>
         <TableRow>
           <TableHead>ID</TableHead>
