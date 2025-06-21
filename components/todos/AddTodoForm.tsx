@@ -37,8 +37,8 @@ const AddTodoForm = ({ userId }: { userId: string | null }) => {
     <>
       <Dialog open={openDialog} onOpenChange={setOpenDialog}>
         <form>
-          <DialogTrigger asChild>
-            <Button>
+          <DialogTrigger asChild >
+            <Button >
               <Plus /> New Todo
             </Button>
           </DialogTrigger>
@@ -57,7 +57,7 @@ const AddTodoForm = ({ userId }: { userId: string | null }) => {
                       <FormItem>
                         <FormLabel>Title</FormLabel>
                         <FormControl>
-                          <Input placeholder="Go to the gym" {...field} />
+                          <Input placeholder="Go to the gym..." {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -70,7 +70,7 @@ const AddTodoForm = ({ userId }: { userId: string | null }) => {
                       <FormItem>
                         <FormLabel>Description</FormLabel>
                         <FormControl>
-                          <Textarea placeholder="Type a description." className="resize-none" {...field} />
+                          <Textarea placeholder="Type a description..." className="resize-none" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>

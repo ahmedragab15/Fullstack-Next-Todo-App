@@ -9,11 +9,11 @@ export default async function Home() {
   console.log(userId);
 
   return (
-    <main className="flex min-h-screen flex-col p-24">
-      <AddTodoForm userId={userId} />
-      <div>
-        <TodosTable todos={todos} />
+    <main className="flex min-h-screen flex-col gap-2 p-24">
+      <div className="self-end">
+        <AddTodoForm userId={userId} />
       </div>
+        <TodosTable todos={todos} />
     </main>
   );
 }
