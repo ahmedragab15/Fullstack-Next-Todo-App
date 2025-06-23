@@ -14,6 +14,26 @@ This is a full-stack todo app built with Next.js, TypeScript, Prisma, and MongoD
 - **Toggle Dark Mode:** Incorporates a dark mode feature for user customization.
 - **CRUD Operations:** Provides basic CRUD (Create, Read, Update, Delete) operations for managing todos.
 
+## <a name="screenshots">📸 Screenshots</a>
+
+   <img src="public/preview/sign-in.png">
+  <br />
+
+   <img src="public/preview/todos-darkmode.png" >
+  <br />
+
+   <img src="public/preview/todos-lightmode.png" >
+  <br /> 
+ 
+   <img src="public/preview/addtodo.png" >
+  <br /> 
+ 
+   <img src="public/preview/edittodo.png" >
+  <br />
+
+   <img src="public/preview/sign-out.png" >
+ 
+
 ## Getting Started
 
 ### Prerequisites
